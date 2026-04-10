@@ -1,5 +1,7 @@
 FROM nikolaik/python-nodejs:python3.10-nodejs19-bullseye
 
+RUN echo 'APT::Get::AllowUnauthenticated "true";' > /etc/apt/apt.conf.d/99allow-unauthenticated
+
 RUN apt-get update \
     && apt-get install -y --no-install-recommends ffmpeg \
     && apt-get clean \
